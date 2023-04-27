@@ -2,10 +2,9 @@
   "development": {
     "username": "user",
     "password": "1234",
-    "database": "visitor",
+    "database": "kdt",
     "host": "127.0.0.1",
     "dialect": "mysql"
-  },
-  "test": {},
-  "production": {}
+  }
 }
+

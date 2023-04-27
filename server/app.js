@@ -6,8 +6,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.send('hi');
 });
+
+const todoRouter = require("./routes/todo");
+app.use("/api", todoRouter);
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);

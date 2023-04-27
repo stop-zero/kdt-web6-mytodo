@@ -8,12 +8,13 @@ const sequelize = new Sequelize(
   config.database,
   config.username,
   config.password,
-  config
+  config,
 );
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // TODO: model 연결
-
+db.Todo = require("./Todo")(sequelize, Sequelize);
 module.exports = db;
+
