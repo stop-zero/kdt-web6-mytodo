@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('hi');
+  res.send('todos');
 });
 
 const todoRouter = require("./routes/todo");
