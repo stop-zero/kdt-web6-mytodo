@@ -17,7 +17,7 @@ const Todo = function (Sequelize, DataTypes) {
           allowNull: false,
           defaultValue: 0,
         },
-      },
+      },// params2: 컬럼 정의
       {
         tableName: "todo",
         freezeTableName: true, 
