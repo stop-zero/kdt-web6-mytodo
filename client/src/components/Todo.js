@@ -5,7 +5,7 @@ import { AiOutlineCloseSquare } from 'react-icons/ai';
 // 반복될 할 일 하나하나
 import { useState } from 'react';
 const Todo = ({ item, deleteItem }) => {
-  console.log(item); //{done : 1, id: 1, title: ""}
+  //   console.log(item); //{done : 1, id: 1, title: ""}
   const [todoItem, setTodoItem] = useState(item);
   const [readOnly, setReadOnly] = useState(true);
 
@@ -49,6 +49,11 @@ const Todo = ({ item, deleteItem }) => {
     // todoItem.done = !todoItem.done;
     // setTodoItem(todoItem);
   };
+
+  //   // 빈값 입력
+  //   if (!todoItem.title.trim().length) {
+  //     return;
+  //   }
 
   return (
     <div className="Todo">
