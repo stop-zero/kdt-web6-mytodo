@@ -1,6 +1,7 @@
 import AddTodo from './components/AddTodo';
 import Todo from './components/Todo';
 import { useState } from 'react';
+import './styles/App.scss';
 
 function App() {
   // todo마다 내용이 달라야함. 임시 상ㅌ ㅐ관리
@@ -43,13 +44,23 @@ function App() {
 
   return (
     <div className="App">
-      {/* todo 추가 input */}
-      <AddTodo addItem={addItem} />
-
-      {/* todo 목록 보이는 부분 */}
-      {todoItems.map((item) => {
-        return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
-      })}
+      <div className="box">
+        <div className="title">
+          <h2>TodoList</h2>
+        </div>
+        {/* todo 추가 input */}
+        <AddTodo addItem={addItem} />
+        {/* 현재 투두 목록 개수 보이기 */}
+        <div className='left-todos'>📝 {todoItems.length} Todos</div> 
+        {/* todo 목록 보이는 부분 */}
+        {
+          todoItems.length > 0 ?(
+          todoItems.map((item) => {
+            return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
+          })
+          ) : <p className="empty-todos">Todo를 추가해주세요 </p>
+        }
+      </div>
     </div>
   );
 }

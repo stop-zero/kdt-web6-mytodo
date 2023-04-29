@@ -1,0 +1,25 @@
+// AddTodo.js에 적용할 scss
+// todo목록 스타일
+.AddTodo {
+  width: 80%;
+  margin: 1rem;
+  top: 100px;
+  display: flex;
+  justify-content: space-between;
+
+  // align-items: flex-end;
+
+  input {
+    // input 배경 투명으로 변경
+    background-color: transparent;
+    // input테두리 없애기
+    border: none;
+    // input 아래 테두리만 주기
+    border-bottom: 1px solid #9a6700;
+    // padding-right: 10px;
+  }
+
+  input:focus {
+    outline: none;
+  }
+}

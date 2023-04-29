@@ -1,3 +1,7 @@
+import '../styles/Todo.scss';
+import React from 'react';
+import { AiOutlineCloseSquare } from 'react-icons/ai';
+
 // 반복될 할 일 하나하나
 import { useState } from 'react';
 const Todo = ({ item, deleteItem }) => {
@@ -48,6 +52,10 @@ const Todo = ({ item, deleteItem }) => {
 
   return (
     <div className="Todo">
+      {/* <div
+      className="Todo"
+      style={{ backgroundColor: item.done ? 'rgb(70, 110, 255)' : 'transparent' }}
+    > */}
       <input
         type="checkbox"
         id={`todo${item.id}`}
@@ -56,6 +64,7 @@ const Todo = ({ item, deleteItem }) => {
         defaultChecked={item.done}
         onChange={checkboxEventHandler}
       />
+      <label htmlFor={`todo${item.id}`}></label>
       <input
         type="text"
         value={todoItem.title}
@@ -63,7 +72,10 @@ const Todo = ({ item, deleteItem }) => {
         onKeyPress={EnterKeyEventHandle}
         onChange={editEventHandler}
       />
-      <button onClick={onDeleteButtonClick}>❌</button>
+
+      <AiOutlineCloseSquare
+        onClick={onDeleteButtonClick}
+      ></AiOutlineCloseSquare>
     </div>
   );
 };

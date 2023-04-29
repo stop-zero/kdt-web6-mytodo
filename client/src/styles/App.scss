@@ -1,0 +1,53 @@
+// App.js에 적용할 scss
+// 전체 컨테이너 스타일
+@font-face {
+  font-family: 'EF_jejudoldam';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  font-family: 'EF_jejudoldam';
+}
+
+body{
+  background-color: rgb(255, 252, 237);
+  overflow-x: hidden;
+}
+
+.App {
+  
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+
+  .left-todos{
+    font-size: 12px;
+    color: rgb(147, 80, 4);
+  }
+
+  .box {
+    width: 25vw;
+    height: 80%;
+    background-color: rgb(255, 204, 122);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+    .title {
+      height: 6vh;
+      padding: 5px;
+      text-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 1rem;
+  }
+}
