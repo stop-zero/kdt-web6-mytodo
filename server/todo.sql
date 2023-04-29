@@ -12,6 +12,8 @@ INSERT INTO todo VALUES(null, "음", 1);
 INSERT INTO todo VALUES(null, "아", 0);
 INSERT INTO todo VALUES(null, "오", 1);
 
+DELETE from todo WHERE id=5;
+
 use kdt;
 DESC todo;
 SELECT * FROM todo;

@@ -11,7 +11,7 @@ router.get("/todos", controller.getTodo);
 router.post("/todo", controller.postTodo);
 
 // 4. PATCH /todo/edit
-router.post("/todo/:todoId", controller.patchTodo); //하나 수정
+router.patch("/todo/:todoId", controller.patchTodo); //하나 수정
 
 // 4. DELETE /todo/delete
 router.delete("/todo/:todoId", controller.deleteTodo); //하나 삭제

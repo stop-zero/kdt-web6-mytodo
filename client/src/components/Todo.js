@@ -4,7 +4,7 @@ import { AiOutlineCloseSquare } from 'react-icons/ai';
 
 // 반복될 할 일 하나하나
 import { useState } from 'react';
-const Todo = ({ item, deleteItem }) => {
+const Todo = ({ item, deleteItem, updateItem }) => {
   //   console.log(item); //{done : 1, id: 1, title: ""}
   const [todoItem, setTodoItem] = useState(item);
   const [readOnly, setReadOnly] = useState(true);
@@ -13,7 +13,7 @@ const Todo = ({ item, deleteItem }) => {
     deleteItem(todoItem);
   };
 
-  //   title input 을 클릭; readOnly state를 false로 변경
+  // title input 을 클릭; readOnly state를 false로 변경
   const offReadOnlyMode = () => {
     setReadOnly(false); // title input이 편집이 가능한 상태
   };
@@ -22,6 +22,7 @@ const Todo = ({ item, deleteItem }) => {
   const EnterKeyEventHandle = (e) => {
     if (e.key === 'Enter') {
       setReadOnly(true);
+      updateItem(todoItem); // 수정1 - text input에서 enter 누르면 수정 완료
     }
   };
 
@@ -42,18 +43,14 @@ const Todo = ({ item, deleteItem }) => {
     //e.target.checked
     //rest : id, title 정보
     const { done, ...rest } = todoItem;
-    setTodoItem({
+    const updatedItem = {
       done: e.target.checked,
       ...rest,
-    });
+    };
+    setTodoItem(updatedItem);
+    updateItem(updatedItem);
     // todoItem.done = !todoItem.done;
-    // setTodoItem(todoItem);
   };
-
-  //   // 빈값 입력
-  //   if (!todoItem.title.trim().length) {
-  //     return;
-  //   }
 
   return (
     <div className="Todo">

@@ -1,45 +1,61 @@
 import AddTodo from './components/AddTodo';
 import Todo from './components/Todo';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import './styles/App.scss';
 
 function App() {
-  // todo마다 내용이 달라야함. 임시 상ㅌ ㅐ관리
-  const [todoItems, setTodoItems] = useState([
-    {
-      id: 1,
-      title: '집에 가야 돼',
-      done: false,
-    },
-    {
-      id: 2,
-      title: '저녁 뭐 먹지',
-      done: false,
-    },
-    {
-      id: 3,
-      title: '모르겠어',
-      done: true,
-    },
-  ]);
+  // todo마다 내용이 달라야함. 임시 상태 관리
+  const [todoItems, setTodoItems] = useState([]);
+
+  useEffect(() => {
+    // console.log('mount 완료');
+    const getTodos = async () => {
+      const res = await axios.get('http://localhost:8080/api/todos');
+      console.log(res);
+      setTodoItems(res.data);
+    };
+    getTodos();
+  }, []);
 
   // Todo 추가 함수
-  const addItem = (newItem) => {
+  const addItem = async (newItem) => {
     // newItem => {title:'xxx'}
-    newItem.id = todoItems.length + 1;
-    newItem.done = false;
-    // newItem => {title:'xxx', id:n, done: false}
+    // newItem.id = todoItems.length + 1;
+    // newItem.done = false;
+    // // newItem => {title:'xxx', id:n, done: false}
 
-    setTodoItems([...todoItems, newItem]);
+    // setTodoItems([...todoItems, newItem]);
+
+    // axios 요청 날리기
+    const res = await axios.post('http://localhost:8080/api/todo', newItem);
+    console.log(res.data);
+    // ...todoItems: 기존 아이템
+    // Res.data : 새로운 아이템 {id: n, title:'xx' , done:false}
+    setTodoItems([...todoItems, res.data]);
   };
 
   // Todo 삭제하는 함수
-  const deleteItem = (targetItem) => {
+  const deleteItem = async (targetItem) => {
     // targetItem => { title: 'xxx', id: n, done: false}
     // 1. filter() targetItem의 id 와 todoItems 의 id가 같지 않은 애들을 새로운 애들로 반환
-    const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
+    // const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
     // 2. state 변경
+    // setTodoItems(newTodoItems);
+    await axios.delete(`http://localhost:8080/api/todo/${targetItem.id}`);
+    const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
     setTodoItems(newTodoItems);
+  };
+
+  // todo 수정하는 함수
+  // (1) 서버 API를 이용해 디비 데이터 업데이트
+  // (2) 변경된 내용을 화면에 다시 출력
+  const updateItem = async (targetItem) => {
+    console.log(targetItem);
+    await axios.patch(
+      `http://localhost:8080/api/todo/${targetItem.id}`,
+      targetItem
+    );
   };
 
   return (
@@ -51,15 +67,22 @@ function App() {
         {/* todo 추가 input */}
         <AddTodo addItem={addItem} />
         {/* 현재 투두 목록 개수 보이기 */}
-        <div className='left-todos'>📝 {todoItems.length} Todos</div> 
+        <div className="left-todos">📝 {todoItems.length} Todos</div>
         {/* todo 목록 보이는 부분 */}
-        {
-          todoItems.length > 0 ?(
+        {todoItems.length > 0 ? (
           todoItems.map((item) => {
-            return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
+            return (
+              <Todo
+                key={item.id}
+                item={item}
+                deleteItem={deleteItem}
+                updateItem={updateItem}
+              />
+            );
           })
-          ) : <p className="empty-todos">Todo를 추가해주세요 </p>
-        }
+        ) : (
+          <p className="empty-todos">Todo를 추가해주세요 </p>
+        )}
       </div>
     </div>
   );
