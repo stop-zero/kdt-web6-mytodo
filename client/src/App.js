@@ -60,7 +60,12 @@ function App() {
     );
   };
 
-  
+  todoItems.sort(function(a, b) { // 내림차순
+    return b.id - a.id;
+});
+// todo.sort((a, b) => b.id - a.id);
+
+  document.title='Todo List';
 
   return (
     <div className="App">

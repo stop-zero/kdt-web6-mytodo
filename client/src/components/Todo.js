@@ -73,6 +73,7 @@ const Todo = ({ item, deleteItem, updateItem }) => {
         onClick={offReadOnlyMode}
         onKeyPress={EnterKeyEventHandle}
         onChange={editEventHandler}
+        style={{ textDecoration: todoItem.done ? 'line-through' : 'none' }}
       />
 
       <AiOutlineCloseSquare
