@@ -8,11 +8,11 @@
   font-style: normal;
 }
 
-*{
+* {
   font-family: 'EF_jejudoldam';
 }
 
-body{
+body {
   background-color: rgb(255, 252, 237);
   overflow-x: hidden;
 }
@@ -24,25 +24,25 @@ body{
   align-items: center;
   padding-top: 2rem;
 
-  .left-todos{
+  .left-todos {
     font-size: 12px;
     color: rgb(128, 128, 128);
   }
 
   .box {
-    width: 25vw;
+    width: 100%;
+    max-width: 300px;
     height: 80%;
     background-color: rgb(255, 204, 122);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 
     .title {
       height: 6vh;
       padding: 5px;
-      text-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     }
   }
 

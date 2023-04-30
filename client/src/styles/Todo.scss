@@ -1,6 +1,6 @@
 // Todo.js에 적용할 scss
 .Todo {
-  width: 80%;
+  // width: 80%;
   height: 5vh;
   border: 1px solid rgba(0, 0, 0, 0.807);
   margin: 10px;
@@ -8,6 +8,7 @@
   justify-content: space-around;
   align-items: center;
   input {
+    width: 70%;
     // input 배경 투명으로 변경
     background-color: transparent;
     // input테두리 없애기

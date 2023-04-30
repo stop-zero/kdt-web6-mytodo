@@ -65,7 +65,7 @@ function App() {
 });
 // todo.sort((a, b) => b.id - a.id);
 
-  document.title='Todo List';
+  document.title='게으른 J의 Todo List';
 
   return (
     <div className="App">
