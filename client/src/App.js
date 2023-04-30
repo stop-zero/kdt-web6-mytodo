@@ -63,7 +63,6 @@ function App() {
   todoItems.sort(function(a, b) { // 내림차순
     return b.id - a.id;
 });
-// todo.sort((a, b) => b.id - a.id);
 
   document.title='게으른 J의 Todo List';
 
@@ -90,7 +89,7 @@ function App() {
             );
           })
         ) : (
-          <p className="empty-todos">Todo를 추가해주세요 </p>
+          <p className="empty-todos">할 일을 추가해주세요 </p>
         )}
       </div>
     </div>

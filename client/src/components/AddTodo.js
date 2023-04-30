@@ -47,7 +47,6 @@ const AddTodo = ({ addItem }) => {
         }}
       />
       <AiFillPlusSquare onClick={OnButtonClick}></AiFillPlusSquare>
-      {/* <button onClick={OnButtonClick}>ADD</button> */}
     </div>
   );
 };
