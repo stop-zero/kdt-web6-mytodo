@@ -47,6 +47,7 @@ const Todo = ({ item, deleteItem, updateItem }) => {
       done: e.target.checked,
       ...rest,
     };
+
     setTodoItem(updatedItem);
     updateItem(updatedItem);
     // todoItem.done = !todoItem.done;

@@ -14,7 +14,7 @@ Full stack Mini Project
 
 # 📌 기능 기술
 - Front-End :React 라이브러리를 이용해 프론트엔드 애플리케이션 개발
-  - HTML, CSS(SCSS), JavsScript(ES6)
+  - CSS(SCSS), JavsScript(ES6)
 - Back-End : Node.js express 프레임워크와 MySQL 사용해 백엔드 애플리케이션 개발
 - Front-End + Back-End
   - Frontend
