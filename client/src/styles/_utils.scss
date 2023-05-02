@@ -1,20 +1,6 @@
 // color
-$color-primary-400: rgb(255, 204, 122);
-$color-secondary-400: rgb(69, 69, 69);
-$color-secondary-300: rgb(100, 100, 100);
-$color-secondary-200: rgb(240, 240, 240);
-$color-secondary-100: rgb(255, 255, 255);
-
-// size
-$width-md: 680px;
-
-// MIXIN
-@mixin input($border-color) {
-    width: 100%; // 부모 너비에 꽉 차게
-    height: auto; // 높이값 자동
-  
-    padding: 12px 8px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid $border-color;
-}  
+$color-primary-400: #F7D060;
+$color-secondary-500: #3C486B;
+$color-secondary-400: #9a6700;
+$color-secondary-300: #F45050;
+$color-secondary-200: #F3E99F;

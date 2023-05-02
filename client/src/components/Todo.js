@@ -55,10 +55,6 @@ const Todo = ({ item, deleteItem, updateItem }) => {
 
   return (
     <div className="Todo">
-      {/* <div
-      className="Todo"
-      style={{ backgroundColor: item.done ? 'rgb(70, 110, 255)' : 'transparent' }}
-    > */}
       <input
         type="checkbox"
         id={`todo${item.id}`}
@@ -74,7 +70,7 @@ const Todo = ({ item, deleteItem, updateItem }) => {
         onClick={offReadOnlyMode}
         onKeyPress={EnterKeyEventHandle}
         onChange={editEventHandler}
-        style={{ textDecoration: todoItem.done ? 'line-through' : 'none'}}
+        style={{ textDecoration: todoItem.done ? 'line-through' : 'none', textDecorationColor: todoItem.done ? 'red' : 'black'}}
       />
 
       <AiOutlineCloseSquare
