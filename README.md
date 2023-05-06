@@ -22,4 +22,4 @@ Full stack Mini Project
     - read, create, delete, update
   - Backend
     - CORS 문제 해결 : 요청하는 곳의 포트번호가 다르더라도 허용
-- [프로젝트 회고록]()
+- [프로젝트 회고록](https://miunoribird.tistory.com/65#Server-1)

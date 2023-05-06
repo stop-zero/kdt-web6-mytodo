@@ -6,7 +6,7 @@ exports.main = (req, res) => {
 exports.getTodo = async (req, res) => {
   const result = await models.Todo.findAll();
   res.send(result);
-};
+} 
 
 // 2. POST /todo/create new todo
 exports.postTodo = async (req, res) => {
