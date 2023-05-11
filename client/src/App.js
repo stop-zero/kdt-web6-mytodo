@@ -3,8 +3,9 @@ import Todo from './components/Todo';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './styles/App.scss';
-import {API_BASE_URL} from './app-config';
-console.log(API_BASE_URL);
+// import {process.env.REACT_APP_DB_HOST} from './app-config';
+// console.log(process.env.REACT_APP_DB_HOST);
+console.log(process.env.REACT_APP_DB_HOST);
 
 function App() {
   // todo마다 내용이 달라야함. 임시 상태 관리
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     // console.log('mount 완료');
     const getTodos = async () => {
-      const res = await axios.get(API_BASE_URL+'/api/todos');
+      const res = await axios.get(process.env.REACT_APP_DB_HOST+'/api/todos');
       console.log(res);
       setTodoItems(res.data);
     };
@@ -30,7 +31,7 @@ function App() {
     // setTodoItems([...todoItems, newItem]);
 
     // axios 요청 날리기
-    const res = await axios.post(API_BASE_URL+'/api/todo', newItem);
+    const res = await axios.post(process.env.REACT_APP_DB_HOST+'/api/todo', newItem);
     console.log(res.data);
     // ...todoItems: 기존 아이템
     // Res.data : 새로운 아이템 {id: n, title:'xx' , done:false}
@@ -44,7 +45,7 @@ function App() {
     // const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
     // 2. state 변경
     // setTodoItems(newTodoItems);
-    await axios.delete(API_BASE_URL+`/api/todo/${targetItem.id}`);
+    await axios.delete(process.env.REACT_APP_DB_HOST+`/api/todo/${targetItem.id}`);
     const newTodoItems = todoItems.filter((item) => item.id !== targetItem.id);
     setTodoItems(newTodoItems);
   };
@@ -55,7 +56,7 @@ function App() {
   const updateItem = async (targetItem) => {
     console.log(targetItem);
     await axios.patch(
-      API_BASE_URL+`/api/todo/${targetItem.id}`,
+      process.env.REACT_APP_DB_HOST+`/api/todo/${targetItem.id}`,
       targetItem
     );
   };
